@@ -2,51 +2,60 @@
 
 ## Table of content
 * [Description](#Description)
-* [How to install](#How to install)
-* [How to use](#How to use)
+* [How to install](#How_to_install)
+* [How to use](#How_to_use)
+* [Bonus](#Bonus)
 
 ## Description
-The software provides windows functionalities using the MDM bridged WMI.
+The software provides windows functionalities using the MDM bridge WMI.
 It can be run at startup device and a msi setup is provided.
 
 ## How to install
-There are two way to use the Windows Service.
-#### 1) Use the executable ServiceWindows/Executable/WindowsService.exe
-#### 2) Use the installer exe ServiceWindows/Executable/Installer/setup.exe or the installer msi ServiceWindows/Executable/Installer/WS_setup.msi
+There are two ways to execute the Windows Service.
+- Use the executable *ServiceWindows/Executable/WindowsService.exe*
+- Run the installer .exe or .msi in *ServiceWindows/Executable/Installer/WS_setup.*
 
 ## How to use
-Run the program.
+When you run the program, you will see a console interface :
 
-It is providing a console interface :
-![image](https://user-images.githubusercontent.com/66410614/138563526-e995a46d-6e0a-4572-8852-57d22f1497ca.png)
+![image](https://user-images.githubusercontent.com/66410614/138610198-e2a363bc-c6ce-4672-a198-bc337624ced8.png)
 
-#### (1) - Is app running at device startup ?
-This option will tell you in the programm will run at startup.
+#### (1) - Does the program run when the computer starts up ?
+This option will tell you in the program will run when you start your device.
 
-#### (2) - Make app run app automatically at startup
-Force the program to run automatically when you start you device.
+#### (2) - Add the program to startup computer run list
+Force the program to run automatically when you start your device.
 
-#### (3) - Make app not run app automatically at startup
-remove the program from the run list. It won't run automatically when you start you device.
+#### (3) - Remove the program from startup computer run list
+Remove the program from the run list. It won't run automatically when you start you device.
 
 #### (4) - Display computer information
 Display some computer data: operating system, battery and permanent address.
+
 ![image](https://user-images.githubusercontent.com/66410614/138563685-636e6135-afa9-4593-b4b8-1fd70c8ecdef.png)
 
 #### (5) - Reboot the device
-Allow to rebbot the device.
-###### /!\ 
-However you cannot schedule a reboot if you don't have full user right.
+Allow to reboot the device.
+**/!\** However you cannot schedule a reboot if you don't have full user right.
 Even running the app as administrator might be not enough.
 
-That's why a tool is provided ServiceWindows/Executable/Tools/PsExec.exe
-To use it, use the following step:
-- Open a commande console Prompt as administrator
-- Go to your tool executable directory : cd Service_Windows/PSTools
-- Execute the command : psexec.exe -i -s cmd.exe
-- It should open a new command prompt.
+That's why a tool is provided *ServiceWindows/Executable/Tools/PsExec.exe*.
+To use it, use the following steps:
+- Open a command console Prompt as administrator
+- Go to tool directory : *cd Service_Windows/PSTools*
+- Execute the command : *psexec.exe -i -s cmd.exe*
+- It should open a new command prompt
 - Then execute Windows Service software
 - Choose to reboot the device and it should schedule a reboot
 
- #### (0) - Exit
- Exit the program
+#### (0) - Exit
+Exit the program.
+
+## Bonus
+The class MsiObject is not only provided read (GET) method using MDM class.
+You also have write (PUT) method to allow camera, or digits in password for example.
+
+However as for the GET method you need to have install of those class in your user session.
+You can check those instance using wbemtest software :
+
+![image](https://user-images.githubusercontent.com/66410614/138610748-c72b7da3-f3d3-42fa-a1a6-cc1d88a5f027.png)
