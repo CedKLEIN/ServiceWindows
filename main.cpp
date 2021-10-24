@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
     try
     {
         MsiObject msi;
-        App app{"WindowsService"};
+        App app{"ServiceWindows_VS"};
 
         while(1)
         {

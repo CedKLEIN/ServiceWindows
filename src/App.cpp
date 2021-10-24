@@ -5,7 +5,7 @@ App::App(const std::string& appName):
 
 bool App::isAppRunningAtStartUp(){
 	LONG ln{RegGetValue(HKEY_CURRENT_USER,
-        "SOFTWARE/Microsoft/Windows/Currentversion/Run",
+        "SOFTWARE\\Microsoft\\Windows\\Currentversion\\Run",
         _appName.c_str(), RRF_RT_REG_SZ, 0, 0, 0)};
 
     return ln==ERROR_SUCCESS;
@@ -13,7 +13,7 @@ bool App::isAppRunningAtStartUp(){
 
 void App::removeAppFromRunList(){
     HKEY hkey{HKEY_CURRENT_USER};
-    RegOpenKey(HKEY_CURRENT_USER, "SOFTWARE/Microsoft/Windows/Currentversion/Run", &hkey);
+    RegOpenKey(HKEY_CURRENT_USER, "SOFTWARE\\Microsoft\\Windows\\Currentversion\\Run", &hkey);
     RegDeleteValue(hkey,_appName.c_str());
     RegCloseKey(hkey);
 }
@@ -22,7 +22,7 @@ void App::addAppToRunList(){
     char re[MAX_PATH];
 	std::string pathApp{std::string(re, GetModuleFileName(nullptr, re, MAX_PATH))};
     HKEY hkey;
-    LONG key{RegOpenKeyEx(HKEY_CURRENT_USER, "SOFTWARE/Microsoft/Windows/Currentversion/Run", 0, KEY_WRITE, &hkey)};
+    LONG key{RegOpenKeyEx(HKEY_CURRENT_USER, "SOFTWARE\\Microsoft\\Windows\\Currentversion\\Run", 0, KEY_WRITE, &hkey)};
     if (key==ERROR_SUCCESS)
     {
         key = RegSetValueEx(hkey, _appName.c_str(), 0, REG_SZ, (BYTE*)pathApp.c_str(), strlen(pathApp.c_str()));
