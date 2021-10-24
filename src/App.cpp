@@ -31,10 +31,10 @@ void App::addAppToRunList(){
 
 void App::displayMenu() const{
     std::cout << "\n WINDOWS SERVICES !\n\n";
-    std::cout << " (1) - Is app running at device startup ? \n";
-    std::cout << " (2) - Make app run app automatically at startup \n";
-    std::cout << " (3) - Make app not run app automatically at startup \n";
+    std::cout << " (1) - Does the program run when the computer starts up ? \n";
+    std::cout << " (2) - Add the program to startup computer run list \n";
+    std::cout << " (3) - Remove the program from startup computer run list \n";
     std::cout << " (4) - Display computer information \n";
     std::cout << " (5) - Reboot the device \n";
-    std::cout << " (0) - Exit" << std::endl;
+    std::cout << " (0) - Exit \n";
 }
