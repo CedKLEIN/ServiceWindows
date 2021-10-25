@@ -36,7 +36,8 @@ Display some computer data: operating system, battery and permanent address.
 
 #### (5) - Reboot the device
 Allow to reboot the device.
-**/!\** However you cannot schedule a reboot if you don't have full user right.
+
+/!\ However you cannot schedule a reboot if you don't have full user right.
 Even running the app as administrator might be not enough.
 
 That's why a tool is provided *ServiceWindows/Executable/Tools/PsExec.exe*.
@@ -55,7 +56,7 @@ Exit the program.
 The class MsiObject is not only provided read (GET) method using MDM class.
 You also have write (PUT) method to allow camera, or digits in password for example.
 
-However as for the GET method you need to have install of those class in your user session.
-You can check those instance using wbemtest software :
+However as for the GET method you need to have instance of those class in your user session.
+You can check those instances using wbemtest software :
 
 ![image](https://user-images.githubusercontent.com/66410614/138610748-c72b7da3-f3d3-42fa-a1a6-cc1d88a5f027.png)
