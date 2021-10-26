@@ -38,12 +38,12 @@ Display some computer data: operating system, battery and permanent address.
 Allow to reboot the device.
 
 /!\ However you cannot schedule a reboot if you don't have full user right.
-Even running the app as administrator might be not enough.
+Even running the app as administrator might not be enough.
 
 That's why a tool is provided *ServiceWindows/Executable/Tools/PsExec.exe*.
 To use it, use the following steps:
 - Open a command console Prompt as administrator
-- Go to tool directory : *cd Service_Windows/PSTools*
+- Go to tool directory : *cd Service_Windows/Executable/PSTools*
 - Execute the command : *psexec.exe -i -s cmd.exe*
 - It should open a new command prompt
 - Then execute Windows Service software
